@@ -1,0 +1,46 @@
+#navbar {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+/* ...............................................search bar........................................................ */
+#searchbar {
+  position: relative;
+  font-size: 25px;
+  font-weight: lighter;
+  width: 100%;
+}
+#searchbar input {
+  display: table-cell;
+  border: 1px solid rgb(201, 201, 201);
+  height: 35px;
+  width: 100%;
+}
+#searchbar i {
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  color: rgb(240, 90, 34);
+}
+
+/* ..................................................order........................................................... */
+
+.icondiv {
+  display: flex;
+  align-items: center;
+}
+.icondiv i {
+  color: rgb(240, 90, 34);
+  font-size: 20px;
+}
+.icondiv p {
+  font-size: 13px;
+  padding: 0px 10px;
+}
+.icondiv:nth-child(2) p {
+  font-size: 13px;
+  width: 80px;
+}

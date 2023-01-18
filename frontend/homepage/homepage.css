@@ -1,0 +1,7 @@
+#logodiv {
+  text-align: center;
+  margin-top: 5px;
+}
+#logodiv > img {
+  width: 100px;
+}

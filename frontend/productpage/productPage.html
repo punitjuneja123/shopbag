@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>productpage</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../nav.css" />
+    <link rel="stylesheet" href="./productPage.css" />
+  </head>
+  <body>
+    <div class="gapdiv"></div>
+    <!-- ...............................................................navbar.......................................... -->
+    <div id="navbar" style="display: flex; align-items: center; padding: 0px">
+      <!-- ............................................................logo............................................ -->
+      <div id="logodiv">
+        <img src="../../images/shopbag logo.png" alt="shopbag" />
+      </div>
+      <!-- .......searchbar....... -->
+      <div id="searchbar">
+        <input type="text" />
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </div>
+      <!-- .........order div......... -->
+      <div class="icondiv">
+        <i class="fa fa-list" aria-hidden="true"></i>
+        <p>My Orders</p>
+      </div>
+      <!-- .........bag div......... -->
+      <div class="icondiv">
+        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+        <p>Bag</p>
+      </div>
+      <!-- .........login/signup div......... -->
+      <div class="icondiv">
+        <i class="fa fa-smile-o" aria-hidden="true"></i>
+        <a href="./login_N_signup/signin.html">Login/Signup</a>
+      </div>
+    </div>
+    <div class="gapdiv"></div>
+    <div id="container">
+      <div id="filterSortProduct">
+        <!--   .......................................filter div .................................................-->
+        <div id="filter">
+          <!-- ......................filterBYPrice....................... -->
+          <div id="filterbyprice">
+            <h3>Price</h3>
+            <div id="filterbypriceInp">
+              <input type="number" placeholder="min" />
+              <p>to</p>
+              <input type="number" placeholder="min" />
+            </div>
+          </div>
+        </div>
+        <!-- .......................................product and sort............................................... -->
+        <div id="product"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,10 +1,13 @@
 #navbar {
-  width: 90%;
   margin: auto;
-  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   gap: 30px;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 99999;
+  padding: 20px 70px;
 }
 /* ...............................................search bar........................................................ */
 #searchbar {
@@ -18,12 +21,18 @@
   border: 1px solid rgb(201, 201, 201);
   height: 35px;
   width: 100%;
+  outline: none;
+  font-size: 20px;
+  font-weight: lighter;
+  padding: 15px;
+  background-color: white;
 }
 #searchbar i {
   position: absolute;
   right: 10px;
   top: 4px;
   color: rgb(240, 90, 34);
+  background-color: white;
 }
 
 /* ..................................................order........................................................... */
@@ -31,14 +40,25 @@
 .icondiv {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  background-color: white;
 }
 .icondiv i {
   color: rgb(240, 90, 34);
   font-size: 20px;
+  background-color: white;
 }
 .icondiv p {
   font-size: 13px;
   padding: 0px 10px;
+  background-color: white;
+}
+.icondiv a {
+  color: black;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 0px 10px;
+  background-color: white;
 }
 .icondiv:nth-child(2) p {
   font-size: 13px;

@@ -7,8 +7,13 @@ productRoute.get("/product", (req, res) => {
 });
 
 // ........................................................mobile route.........................................................
-productRoute.get("/product/mobile", (req, res) => {
-  res.send("mobile product");
+productRoute.get("/product/mobile", async (req, res) => {
+  let page = req.query.page;
+  let data = await productModel
+    .find({ category: "mobile" })
+    .limit(12)
+    .skip(12 * (page - 1));
+  res.send(data);
 });
 
 module.exports = { productRoute };

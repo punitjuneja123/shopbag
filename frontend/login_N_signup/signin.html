@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signin</title>
+    <link rel="stylesheet" href="./signin.css" />
+  </head>
+  <body>
+    <div class="gapdiv"></div>
+    <div id="container">
+      <div id="header">
+        <!-- ............................................................logo............................................ -->
+        <div id="logodiv">
+          <img src="../../images/shopbag logo.png" alt="shopbag" />
+        </div>
+      </div>
+      <h2>Sign in</h2>
+      <form autocomplete="on">
+        <p>
+          <label for="email">Email</label><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="abc@mail.com"
+            required
+          />
+        </p>
+        <p>
+          <label for="password">password</label><br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="abc123"
+            required
+          />
+        </p>
+
+        <input type="submit" value="Sign in" />
+        <p style="text-align: center; font-size: 15px">
+          By continuing, I agree to Shopbag's Conditions of Use and Privacy
+          Notice.
+        </p>
+        <hr />
+        <p style="text-align: center; font-size: 15px">
+          New to Shopbag?
+          <a href="./signup.html">Signup Now</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
+<script src="./signin.js"></script>

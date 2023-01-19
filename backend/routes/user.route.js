@@ -12,7 +12,8 @@ userRoute.get("/", (req, res) => {
 userRoute.post("/users/register", async (req, res) => {
   let { name, email, number, password } = req.body;
   let data = await userModel.find({ email });
-  if (data) {
+  console.log(data);
+  if (data.length != 0) {
     res.status(409);
     res.send("email already exists");
   } else {
@@ -29,10 +30,10 @@ userRoute.post("/users/register", async (req, res) => {
   }
 });
 
-userRoute.post("/users/login", async (req, res) => {
+userRoute.post("/users/signin", async (req, res) => {
   let { email, password } = req.body;
   let data = await userModel.find({ email });
-  if (data) {
+  if (data.length > 0) {
     bcrypt.compare(password, data[0].password, (err, result) => {
       if (result) {
         console.log(data[0]._id);

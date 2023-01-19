@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.gapdiv {
+  height: 15px;
+  background-color: rgb(243, 247, 248);
+}
+#logodiv {
+  text-align: center;
+  margin-top: 5px;
+}
+#logodiv > img {
+  width: 100px;
+}
+#container {
+  display: grid;
+  place-content: center;
+  min-height: max-content;
+  height: 90vh;
+}
+form {
+  padding: 50px 30px;
+  font-size: 20px;
+  width: 350px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+}
+form input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 30px;
+  font-size: 14px;
+  margin: 8px 0px;
+  padding: 0px 10px;
+  outline: none;
+}
+
+form p {
+  margin: 20px 0px;
+}
+form a {
+  color: rgb(240, 90, 34);
+  text-decoration: none;
+  font-size: 20px;
+}
+
+form a:hover {
+  text-decoration: underline;
+  color: rgb(249, 157, 123);
+}
+
+h2 {
+  margin: 10px;
+}
+
+form input[type="submit"] {
+  color: white;
+  background-color: rgb(240, 90, 34);
+  outline: none;
+  border: 0px;
+  border-radius: 5px;
+}
+form input[type="submit"]:hover {
+  background-color: rgb(255, 126, 79);
+  cursor: pointer;
+}

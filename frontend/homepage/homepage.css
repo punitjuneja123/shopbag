@@ -1,7 +1,109 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.gapdiv {
+  height: 15px;
+  background-color: rgb(243, 247, 248);
+}
+
 #logodiv {
   text-align: center;
   margin-top: 5px;
 }
 #logodiv > img {
   width: 100px;
+}
+
+/* ......................................category div.................................................... */
+
+#categorydiv {
+  display: flex;
+  width: 95%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  justify-content: space-around;
+}
+#categorydiv > div {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.imagediv {
+  border-radius: 55%;
+  overflow: hidden;
+}
+#categorydiv img {
+  max-height: 10vw;
+  min-height: 10vw;
+  max-width: 10vw;
+  min-width: 10vw;
+  transition: transform 0.5s;
+}
+#categorydiv img:hover {
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+/* ...............................................................footer section........................................................ */
+
+/* ...................................about section ........................*/
+#aboutsection {
+  width: 98%;
+  margin: auto;
+}
+.boldp {
+  font-weight: bold;
+  margin: 10px 0px;
+}
+.lightp {
+  font-size: 14px;
+  font-weight: lighter;
+  margin: 15px 0px;
+}
+.boldNsmallp {
+  font-weight: bolder;
+  font-size: 14px;
+  margin: 7px 0px;
+}
+.boldNsmallpdiv {
+  display: flex;
+  gap: 5px;
+}
+
+#aboutsection div .lightp {
+  font-size: 14px;
+  font-weight: lighter;
+  margin: 7px 0px;
+}
+
+/* ..........................trust24............................... */
+#trust24 {
+  width: 95%;
+  display: flex;
+  text-align: center;
+  margin: auto;
+  margin-top: 40px;
+  gap: 30px;
+  color: gray;
+}
+#trust24 i {
+  font-size: 40px;
+  font-weight: lighter;
+  margin-bottom: 15px;
+}
+.b24 {
+  font-weight: bolder;
+  font-size: 17px;
+  margin-bottom: 7px;
+}
+.l24 {
+  font-size: 14px;
+  margin-bottom: 30px;
 }

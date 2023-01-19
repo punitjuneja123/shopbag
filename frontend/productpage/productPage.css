@@ -1,0 +1,68 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  background-color: rgb(240, 250, 254);
+}
+.gapdiv {
+  height: 15px;
+  background-color: rgb(240, 250, 254);
+}
+
+#logodiv {
+  text-align: center;
+  background-color: white;
+}
+#logodiv > img {
+  width: 70px;
+}
+
+/* ....................................filter...........Sort.......Product..................................... */
+#filterSortProduct {
+  display: flex;
+  width: 95%;
+  border: 1px solid red;
+  margin: auto;
+  justify-content: space-between;
+}
+#filter {
+  width: 22%;
+  border: 1px solid blue;
+  padding: 30px;
+  background-color: white;
+}
+#product {
+  width: 76%;
+  border: 1px solid blue;
+}
+
+/* .............................filter div........................ */
+#filterbyprice {
+  display: block;
+  
+}
+#filterbypriceInp {
+  display: flex;
+  background-color: white;
+  align-self: center;
+}
+#filterbyprice h3 {
+  font-size: 18px;
+  color: rgb(122, 122, 122);
+  background-color: white;
+}
+#filterbypriceInp input {
+  width: 38%;
+  height: 25px;
+  margin: 10px;
+  text-align: center;
+  font-size: 15px;
+  color: rgb(122, 122, 122);
+  background-color: white;
+}
+#filterbypriceInp p {
+  align-self: center;
+  font-size: 20px;
+  color: rgb(122, 122, 122);
+  background-color: white;
+}

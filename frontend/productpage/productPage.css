@@ -21,25 +21,22 @@
 #filterSortProduct {
   display: flex;
   width: 95%;
-  border: 1px solid red;
   margin: auto;
   justify-content: space-between;
 }
 #filter {
   width: 22%;
-  border: 1px solid blue;
   padding: 30px;
   background-color: white;
 }
-#product {
+#productNsort {
   width: 76%;
-  border: 1px solid blue;
 }
-
 /* .............................filter div........................ */
 #filterbyprice {
   display: block;
-  
+  position: sticky;
+  top: 70px;
 }
 #filterbypriceInp {
   display: flex;
@@ -64,5 +61,76 @@
   align-self: center;
   font-size: 20px;
   color: rgb(122, 122, 122);
+  background-color: white;
+}
+
+/* ...............................................sort............................................... */
+#sort {
+  display: flex;
+  width: 100%;
+  position: sticky;
+  top: 70px;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: white;
+}
+#sort h2 {
+  background-color: white;
+  font-weight: lighter;
+  color: gray;
+}
+#sortSelect {
+  background-color: white;
+  outline: none;
+  padding: 5px 10px;
+}
+
+/* .................................................pagination.................................................... */
+#pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+#pagination button {
+  text-align: center;
+  font-size: 20px;
+  padding: 5px 13px;
+  margin: 3px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* ....................................................product.......................................................... */
+#productDiv {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  background-color: white;
+}
+#productDiv div {
+  background-color: white;
+  padding: 10px;
+}
+#productDiv div img {
+  width: 100%;
+  aspect-ratio: 3/4;
+}
+#productDiv div p {
+  background-color: white;
+  margin: 5px;
+}
+#productDiv div h3 {
+  background-color: white;
+  margin: 5px;
+}
+#productDiv > div > div {
+  display: flex;
+}
+#productDiv > div > div > p {
+  font-size: 12px;
+  align-self: center;
+  background-color: white;
+}
+#productDiv strike {
   background-color: white;
 }

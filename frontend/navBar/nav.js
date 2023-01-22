@@ -30,3 +30,28 @@ if (user) {
     location.reload();
   });
 }
+
+let searchform = document.querySelector("#searchbar");
+searchform.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let all_tag = document.querySelectorAll("#searchbar input");
+  let query = all_tag[0].value;
+  searchAndDisplay(query);
+});
+
+async function searchAndDisplay(query) {
+  let data = await fetch(
+    `https://thankful-mittens-duck.cyclic.app/product/search?search=${query}`,
+    {
+      method: "GET",
+    }
+  );
+  if (data.status == 200) {
+    let searchedData = await data.json();
+    if (searchedData.length > 0) {
+      
+    } else {
+      alert("product not found")
+    }
+  }
+}

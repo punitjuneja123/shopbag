@@ -11,11 +11,14 @@ form.addEventListener("submit", (event) => {
 });
 
 async function signinFun(signinObj) {
-  let data = await fetch("http://localhost:4600/users/signin", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(signinObj),
-  });
+  let data = await fetch(
+    "https://thankful-mittens-duck.cyclic.app/users/signin",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(signinObj),
+    }
+  );
   if (data.status == 200) {
     let token = await data.json();
     localStorage.setItem("token", token.token);

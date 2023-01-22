@@ -2,7 +2,7 @@ let productID = localStorage.getItem("productViewID");
 let checkuser = localStorage.getItem("user") || null;
 async function FetchData() {
   let data = await fetch(
-    `http://localhost:4600/product/productview/${productID}`,
+    `https://thankful-mittens-duck.cyclic.app/product/productview/${productID}`,
     {
       method: "GET",
     }
@@ -89,7 +89,7 @@ async function addTocart(details, quantityvalue) {
     disprice: details.disprice,
     quantity: quantityvalue,
   };
-  let data = await fetch("http://localhost:4600/cart", {
+  let data = await fetch("https://thankful-mittens-duck.cyclic.app/cart", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

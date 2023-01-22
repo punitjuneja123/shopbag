@@ -21,7 +21,6 @@
 #container {
   display: flex;
   width: 95%;
-  border: 1px solid red;
   margin: auto;
   justify-content: space-between;
 }
@@ -32,14 +31,19 @@
   position: relative;
 }
 #cartProductsView {
-  border: 1px solid blue;
   display: flex;
   background-color: white;
   margin-bottom: 12px;
+  height: 250px;
+}
+.imageDiv {
+  background-color: white;
 }
 .imageDiv > img {
-  max-width: 14vw;
-  min-width: 14vw;
+  max-width: 11vw;
+  min-width: 11vw;
+  max-height: 15vw;
+  min-height: 15vw;
   background-color: white;
 }
 .productDetails {
@@ -79,7 +83,7 @@ p {
   width: 40px;
   background-color: white;
 }
-#removebtn {
+.removebtn {
   color: red;
   border: none;
   background-color: white;
@@ -97,5 +101,36 @@ p {
 /* ******************************totalNpriceSection*************************************** */
 #totalNpriceSection {
   width: 25%;
-  border: 1px solid blue;
+  padding: 50px;
+  background-color: white;
+  height: 280px;
+  position: sticky;
+  top: 85px;
+}
+#totalNpriceSection > div {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: white;
+}
+#totalNpriceSection > div > h2,
+p {
+  background-color: white;
+}
+
+#btnDiv {
+  margin-top: 30px;
+}
+#checkoutBtn {
+  font-size: 25px;
+  background-color: rgb(240, 90, 34);
+  color: white;
+  border: none;
+  padding: 10px 70px;
+  border-radius: 35px;
+}
+#checkoutBtn:hover{
+    cursor: pointer;
+     background-color: rgb(255, 119, 70);
 }

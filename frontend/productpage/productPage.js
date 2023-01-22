@@ -2,9 +2,12 @@ let productName = localStorage.getItem("productName");
 let atpage = 1;
 let sortValue = undefined;
 async function pagination() {
-  let data = await fetch("http://localhost:4600/product/mobile", {
-    method: "GET",
-  });
+  let data = await fetch(
+    `https://thankful-mittens-duck.cyclic.app/product/${productName}`,
+    {
+      method: "GET",
+    }
+  );
   if (data.status == 200) {
     let jsonData = await data.json();
     let length = jsonData.length;
@@ -34,7 +37,7 @@ pagination();
 // ***********************************************************display products***************************************************
 async function displayProduct() {
   let displayData = await fetch(
-    `http://localhost:4600/product/mobile?page=${atpage}&sort=${sortValue}`,
+    `https://thankful-mittens-duck.cyclic.app/product/${productName}?page=${atpage}&sort=${sortValue}`,
     {
       method: "GET",
     }
@@ -82,5 +85,5 @@ sortSelect.addEventListener("change", () => {
 // switching to product view page
 function hrefProductView(productID) {
   localStorage.setItem("productViewID", productID);
-  window.location.href=("../productViewPage/productviewpage.html");
+  window.location.href = "../productViewPage/productviewpage.html";
 }

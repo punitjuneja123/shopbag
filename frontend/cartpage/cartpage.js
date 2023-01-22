@@ -1,5 +1,5 @@
 async function getCartItem() {
-  let data = await fetch("http://localhost:4600/cart", {
+  let data = await fetch("https://thankful-mittens-duck.cyclic.app/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -12,11 +12,11 @@ async function getCartItem() {
   }
 }
 getCartItem();
-
+// *********************************************************Display function*******************************************************************
 function displayData(cartData) {
   let maincartProductsView = document.querySelector("#maincartProductsView");
   maincartProductsView.innerHTML = null;
-  let cartDataArray = [];
+  let Subtotal = 0;
   cartData.forEach((element) => {
     let div = document.createElement("div");
     let innerDiv = `
@@ -44,18 +44,18 @@ function displayData(cartData) {
             </p>
             <div style="display: flex; background-color: white">
               <div class="quantity">
-                <select class="quantitys">
+                <select class="quantitys" data-id="${element._id}">
                     <option value="${element.quantity}">${
       element.quantity
     }</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="1" data-id="${element._id}">1</option>
+                    <option value="2" data-id="${element._id}">2</option>
+                    <option value="3" data-id="${element._id}">3</option>
+                    <option value="4" data-id="${element._id}">4</option>
+                    <option value="5" data-id="${element._id}">5</option>
                 </select>
               </div>
-              <button id="removebtn">Remove</button>
+              <button class="removebtn" data-id="${element._id}">Remove</button>
             </div>
           </div>
           <div class="totalPerQuantity">
@@ -65,21 +65,78 @@ function displayData(cartData) {
             }</h2>
           </div>
         </div>`;
+    Subtotal += element.disprice * element.quantity;
     div.innerHTML = innerDiv;
     maincartProductsView.append(div);
   });
-  // maincartProductsView.innerHTML = cartDataArray.join("");
-  // let quantityOpt = document.querySelector(".quantity");
-  // console.log(quantityOpt);
-    let quantityOpt = document.querySelectorAll(".quantitys");
-    console.log(quantityOpt)
-    for (let i = 0; i < quantityOpt.length; i++){
-        quantityOpt[i].addEventListener("change", () => {
-            console.log(quantityOpt[i].value)
-        })
+  // *****************total N price Section**********************
+  let totalNpriceSection = document.querySelector("#totalNpriceSection");
+  totalNpriceSection.innerHTML = `
+        <div>
+          <h2>Subtotal :</h2>
+          <h2>${Subtotal}</h2>
+        </div>
+        <div>
+          <p>shipment and handling:</p>
+          <p>free</p>
+        </div>
+        <hr style="margin-top: 10px" />
+        <div id="btnDiv" style="justify-content: center;">
+          <button id="checkoutBtn">Checkout</button>
+        </div>`;
+
+  // quantity
+  let quantityOpt = document.querySelectorAll(".quantitys");
+  for (let i = 0; i < quantityOpt.length; i++) {
+    quantityOpt[i].addEventListener("change", (event) => {
+      let quantity = quantityOpt[i].value;
+      let ID = event.target.dataset.id;
+      updateQuantity(quantity, ID);
+    });
+  }
+
+  //remove
+  let all_remove_btn = document.querySelectorAll(".removebtn");
+  for (let i = 0; i < all_remove_btn.length; i++) {
+    all_remove_btn[i].addEventListener("click", (event) => {
+      let ID = event.target.dataset.id;
+      remove(ID);
+    });
+  }
+}
+// update quantity function
+async function updateQuantity(quantity, ID) {
+  let data = await fetch(
+    `https://thankful-mittens-duck.cyclic.app/cart/upadtequantity/${ID}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        quantity: quantity,
+      }),
     }
-    
-    // quantityOpt.addEventListener("change", () => {
-    //   console.log(quantityOpt.value);
-    // });
+  );
+  if (data.status == 200) {
+    getCartItem();
+  }
+}
+
+// remove/delete function
+async function remove(ID) {
+  let data = await fetch(
+    `https://thankful-mittens-duck.cyclic.app/cart/delete/${ID}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    }
+  );
+  if (data.status == 200) {
+    getCartItem();
+  }
 }

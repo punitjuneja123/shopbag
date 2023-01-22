@@ -107,3 +107,62 @@
   font-size: 14px;
   margin-bottom: 30px;
 }
+
+/* **********************************************************carousel******************************************************* */
+#carousel {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+}
+#GrocerynHomeInner,
+#JewelleryInner {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding: 5px;
+}
+.carouselImagediv{
+  overflow: hidden;
+}
+.carouselImagediv img {
+  max-height: 27vw;
+  min-height: 27vw;
+  max-width: 23vw;
+  min-width: 23vw;
+  transition: transform 0.9s;
+}
+.carouselImagediv img:hover {
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1.1);
+}
+
+#GrocerynHomeSlideLeft,
+#JewellerySlideLeft {
+  height: 40px;
+  position: absolute;
+  background-color: black;
+  color: white;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  opacity: 0.7;
+  left: 12px;
+  align-self: center;
+}
+#GrocerynHomeSlideRight,
+#JewellerySlideRight {
+  height: 40px;
+  position: absolute;
+  background-color: black;
+  color: white;
+  right: 10px;
+  margin-right: 10px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  opacity: 0.7;
+  align-self: center;
+}

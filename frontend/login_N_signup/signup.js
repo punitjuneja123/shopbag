@@ -11,11 +11,14 @@ form.addEventListener("submit", (event) => {
 });
 
 async function signupFun(signupObj) {
-  let data = await fetch("http://localhost:4600/users/register", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(signupObj),
-  });
+  let data = await fetch(
+    "https://thankful-mittens-duck.cyclic.app/users/register",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(signupObj),
+    }
+  );
   if (data.status == 200) {
     alert("User Registered");
   } else {

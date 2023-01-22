@@ -117,11 +117,11 @@
 }
 #productDiv div p {
   background-color: white;
-  margin: 5px;
+  margin: 7px;
 }
 #productDiv div h3 {
   background-color: white;
-  margin: 5px;
+  margin: 0px;
 }
 #productDiv > div > div {
   display: flex;

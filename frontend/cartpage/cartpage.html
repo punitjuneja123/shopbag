@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>productpage</title>
+    <title>Shopping Cart</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="../nav.css" />
-    <link rel="stylesheet" href="./productPage.css" />
+    <link rel="stylesheet" href="./cartpage.css" />
   </head>
   <body>
     <div class="gapdiv"></div>
@@ -33,7 +33,7 @@
       <!-- .........bag div......... -->
       <div class="icondiv">
         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-        <p>Bag</p>
+        <a href="../cartpage/cartpage.html">Bag</a>
       </div>
       <!-- .........login/signup div......... -->
       <div class="icondiv" id="loginBtn" style="width: 230px">
@@ -43,35 +43,11 @@
     </div>
     <div class="gapdiv"></div>
     <div id="container">
-      <div id="filterSortProduct">
-        <!--   .......................................filter div .................................................-->
-        <div id="filter">
-          <!-- ......................filterBYPrice....................... -->
-          <div id="filterbyprice">
-            <h3>Price</h3>
-            <div id="filterbypriceInp">
-              <input type="number" placeholder="min" />
-              <p>to</p>
-              <input type="number" placeholder="min" />
-            </div>
-          </div>
-        </div>
-        <!-- .......................................product and sort............................................... -->
-        <div id="productNsort">
-          <div id="sort">
-            <h2 id="lenNPname"></h2>
-            <select name="sort" id="sortSelect">
-              <option>Sort by</option>
-              <option value="lth">Low to High</option>
-              <option value="htl">High to Low</option>
-            </select>
-          </div>
-          <div id="productDiv"></div>
-        </div>
-      </div>
-      <div id="pagination"></div>
+      <div id="maincartProductsView"></div>
+
+      <div id="totalNpriceSection"></div>
     </div>
   </body>
 </html>
-<script src="./productPage.js"></script>
 <script src="../navBar/nav.js"></script>
+<script src="./cartpage.js"></script>

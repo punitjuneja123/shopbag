@@ -1,0 +1,90 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  background-color: rgb(240, 250, 254);
+}
+.gapdiv {
+  height: 15px;
+  background-color: rgb(240, 250, 254);
+}
+
+#logodiv {
+  text-align: center;
+  background-color: white;
+}
+#logodiv > img {
+  width: 70px;
+}
+/* container */
+#container {
+  display: flex;
+  width: 95%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+/* ***************************************************productView******************************************************** */
+
+#productView {
+  display: flex;
+  width: 75%;
+}
+/* productDetails */
+#productDetails {
+  padding: 40px;
+  background-color: white;
+}
+#productDetails p {
+  color: gray;
+}
+#productDetails p,
+h3,
+h4,
+h2 {
+  margin: 5px;
+  background-color: white;
+}
+/* image div */
+#imageDiv {
+  background-color: white;
+}
+#imageDiv img {
+  margin-top: 30px;
+}
+#btnDiv {
+  margin-top: 20px;
+  background-color: white;
+  text-align: center;
+}
+#addToCartBtn {
+  font-size: 20px;
+  padding: 10px 70px;
+  border-radius: 30px;
+  background-color: rgb(239, 78, 40);
+  color: white;
+  border: none;
+}
+/* total price div */
+#totalPriceDiv {
+  width: 20%;
+}
+
+/* quantity */
+#quantity {
+  margin-top: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+#quantity:before {
+  content: "Select Quantity ";
+  color: black;
+  font-size: 18px;
+}
+
+#quantity > select {
+  background-color: white;
+  padding: 2px 5px;
+  outline: none;
+}

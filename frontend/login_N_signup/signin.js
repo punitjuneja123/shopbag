@@ -19,6 +19,8 @@ async function signinFun(signinObj) {
   if (data.status == 200) {
     let token = await data.json();
     localStorage.setItem("token", token.token);
+    localStorage.setItem("user", token.user);
+    history.back();
   } else {
     alert(await data.text());
   }

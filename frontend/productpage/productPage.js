@@ -1,5 +1,6 @@
 let productName = localStorage.getItem("productName");
 let atpage = 1;
+let sortValue = undefined;
 async function pagination() {
   let data = await fetch("http://localhost:4600/product/mobile", {
     method: "GET",
@@ -33,7 +34,7 @@ pagination();
 // ***********************************************************display products***************************************************
 async function displayProduct() {
   let displayData = await fetch(
-    `http://localhost:4600/product/mobile?page=${atpage}`,
+    `http://localhost:4600/product/mobile?page=${atpage}&sort=${sortValue}`,
     {
       method: "GET",
     }
@@ -43,7 +44,6 @@ async function displayProduct() {
     let productDiv = document.querySelector("#productDiv");
     productDiv.innerHTML = null;
     data.forEach((element) => {
-      console.log(element);
       let img = document.createElement("img");
       img.src = element.image;
       let title = document.createElement("p");
@@ -51,14 +51,18 @@ async function displayProduct() {
       let rating = document.createElement("p");
       rating.innerText = "rating-" + element.rating;
       let price = document.createElement("h3");
-      price.innerText =
-        "₹ " +
-        Math.trunc(element.price - element.price * (element.discount / 100));
+      price.innerText = "₹ " + element.disprice;
       let ogprice = document.createElement("p");
       ogprice.innerHTML = "M.R.P: " + element.price.toString().strike();
       let pricediv = document.createElement("div");
       pricediv.append(price, ogprice);
+      // product div
       let div = document.createElement("div");
+      div.style.cursor = "pointer";
+      // href function
+      div.addEventListener("click", () => {
+        hrefProductView(element._id);
+      });
       div.append(img, title, rating, pricediv);
       productDiv.append(div);
     });
@@ -69,3 +73,14 @@ async function displayProduct() {
 displayProduct();
 
 // ******************************************************sort function*********************************************************
+let sortSelect = document.querySelector("#sortSelect");
+sortSelect.addEventListener("change", () => {
+  sortValue = sortSelect.value;
+  displayProduct();
+});
+
+// switching to product view page
+function hrefProductView(productID) {
+  localStorage.setItem("productViewID", productID);
+  window.location.href=("../productViewPage/productviewpage.html");
+}

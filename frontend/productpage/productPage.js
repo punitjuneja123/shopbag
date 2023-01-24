@@ -1,13 +1,11 @@
+const port = "https://thankful-mittens-duck.cyclic.app";
 let productName = localStorage.getItem("productName");
 let atpage = 1;
 let sortValue = undefined;
 async function pagination() {
-  let data = await fetch(
-    `https://thankful-mittens-duck.cyclic.app/product/${productName}`,
-    {
-      method: "GET",
-    }
-  );
+  let data = await fetch(`${port}/product/${productName}`, {
+    method: "GET",
+  });
   if (data.status == 200) {
     let jsonData = await data.json();
     let length = jsonData.length;
@@ -37,7 +35,7 @@ pagination();
 // ***********************************************************display products***************************************************
 async function displayProduct() {
   let displayData = await fetch(
-    `https://thankful-mittens-duck.cyclic.app/product/${productName}?page=${atpage}&sort=${sortValue}`,
+    `${port}/product/${productName}?page=${atpage}&sort=${sortValue}`,
     {
       method: "GET",
     }

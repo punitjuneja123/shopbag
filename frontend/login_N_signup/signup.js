@@ -1,4 +1,5 @@
 let form = document.querySelector("form");
+const port = "https://thankful-mittens-duck.cyclic.app";
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -11,16 +12,14 @@ form.addEventListener("submit", (event) => {
 });
 
 async function signupFun(signupObj) {
-  let data = await fetch(
-    "https://thankful-mittens-duck.cyclic.app/users/register",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(signupObj),
-    }
-  );
+  let data = await fetch(`${port}/users/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(signupObj),
+  });
   if (data.status == 200) {
     alert("User Registered");
+    window.location.href = "./signin.html";
   } else {
     alert(await data.text());
   }

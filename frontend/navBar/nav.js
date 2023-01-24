@@ -1,3 +1,5 @@
+const port = "https://thankful-mittens-duck.cyclic.app";
+
 // login func
 let user = localStorage.getItem("user") || null;
 if (user) {
@@ -40,18 +42,14 @@ searchform.addEventListener("submit", (event) => {
 });
 
 async function searchAndDisplay(query) {
-  let data = await fetch(
-    `https://thankful-mittens-duck.cyclic.app/product/search?search=${query}`,
-    {
-      method: "GET",
-    }
-  );
+  let data = await fetch(`${port}/product/search?search=${query}`, {
+    method: "GET",
+  });
   if (data.status == 200) {
     let searchedData = await data.json();
     if (searchedData.length > 0) {
-      
     } else {
-      alert("product not found")
+      alert("product not found");
     }
   }
 }

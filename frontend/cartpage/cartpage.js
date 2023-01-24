@@ -1,5 +1,5 @@
 async function getCartItem() {
-  let data = await fetch("https://thankful-mittens-duck.cyclic.app/cart", {
+  let data = await fetch(`${port}/cart`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -8,7 +8,24 @@ async function getCartItem() {
   });
   if (data.status == 200) {
     let cartData = await data.json();
-    displayData(cartData);
+    if (cartData.length == 0) {
+      let maincartProductsView = document.querySelector(
+        "#maincartProductsView"
+      );
+      maincartProductsView.innerHTML = `
+        <h1 style="background-color: rgb(240, 250, 254)">Your bag is empty</h1>
+        <p style="background-color: rgb(240, 250, 254)">Add items to bag</p>`;
+      let totalNpriceSection = document.querySelector("#totalNpriceSection");
+      totalNpriceSection.innerHTML = null;
+    } else {
+      displayData(cartData);
+    }
+  } else {
+    maincartProductsView.innerHTML = `
+        <h1 style="background-color: rgb(240, 250, 254)">Your bag is empty</h1>
+        <p style="background-color: rgb(240, 250, 254)">Login first and add items 😀</p>`;
+    let totalNpriceSection = document.querySelector("#totalNpriceSection");
+    totalNpriceSection.innerHTML = null;
   }
 }
 getCartItem();
@@ -106,19 +123,16 @@ function displayData(cartData) {
 }
 // update quantity function
 async function updateQuantity(quantity, ID) {
-  let data = await fetch(
-    `https://thankful-mittens-duck.cyclic.app/cart/upadtequantity/${ID}`,
-    {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `${localStorage.getItem("token")}`,
-      },
-      body: JSON.stringify({
-        quantity: quantity,
-      }),
-    }
-  );
+  let data = await fetch(`${port}/cart/upadtequantity/${ID}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `${localStorage.getItem("token")}`,
+    },
+    body: JSON.stringify({
+      quantity: quantity,
+    }),
+  });
   if (data.status == 200) {
     getCartItem();
   }
@@ -126,16 +140,13 @@ async function updateQuantity(quantity, ID) {
 
 // remove/delete function
 async function remove(ID) {
-  let data = await fetch(
-    `https://thankful-mittens-duck.cyclic.app/cart/delete/${ID}`,
-    {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `${localStorage.getItem("token")}`,
-      },
-    }
-  );
+  let data = await fetch(`${port}/cart/delete/${ID}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `${localStorage.getItem("token")}`,
+    },
+  });
   if (data.status == 200) {
     getCartItem();
   }

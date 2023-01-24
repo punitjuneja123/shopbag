@@ -13,11 +13,14 @@
       <div id="header">
         <!-- ............................................................logo............................................ -->
         <div id="logodiv">
-          <img src="https://ik.imagekit.io/xvk3mjbt6/shopbag_logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674398589877" alt="shopbag" />
+          <img
+            src="https://ik.imagekit.io/xvk3mjbt6/shopbag_logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674398589877"
+            alt="shopbag"
+          />
         </div>
       </div>
       <h2>Sign up</h2>
-      <form autocomplete="on">
+      <form>
         <p>
           <label for="name">Your Name</label><br />
           <input
@@ -41,11 +44,14 @@
         <p>
           <label for="email">Mobile Number</label><br />
           <input
-            type="number"
+            type="tel"
             id="number"
             name="number"
             placeholder="1234567890"
             required
+            pattern="[0-9]{10}"
+            oninvalid="setCustomValidity('Please enter valid Mobile number')"
+            onchange="try{setCustomValidity('')}catch(e){}"
           />
         </p>
         <p>

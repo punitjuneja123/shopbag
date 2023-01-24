@@ -1,16 +1,14 @@
+
 let productID = localStorage.getItem("productViewID");
 let checkuser = localStorage.getItem("user") || null;
 async function FetchData() {
-  let data = await fetch(
-    `https://thankful-mittens-duck.cyclic.app/product/productview/${productID}`,
-    {
-      method: "GET",
-    }
-  );
+  let data = await fetch(`${port}/product/productview/${productID}`, {
+    method: "GET",
+  });
   if (data.status == 200) {
     let details = await data.json();
     let pageTitle = document.querySelector("#title");
-    title.innerText = details.title;
+    pageTitle.innerText = details.title;
     displayData(details);
   } else {
     alert("something went wrong");
@@ -79,7 +77,6 @@ function displayData(details) {
 }
 
 async function addTocart(details, quantityvalue) {
-  console.log(details);
   let obj = {
     productid: details._id,
     title: details.title,
@@ -89,7 +86,7 @@ async function addTocart(details, quantityvalue) {
     disprice: details.disprice,
     quantity: quantityvalue,
   };
-  let data = await fetch("https://thankful-mittens-duck.cyclic.app/cart", {
+  let data = await fetch(`${port}/cart`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

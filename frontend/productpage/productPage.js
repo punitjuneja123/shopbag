@@ -1,43 +1,52 @@
+const port = "https://thankful-mittens-duck.cyclic.app";
 let productName = localStorage.getItem("productName");
 let atpage = 1;
 let sortValue = undefined;
 async function pagination() {
-  let data = await fetch(
-    `https://thankful-mittens-duck.cyclic.app/product/${productName}`,
-    {
-      method: "GET",
-    }
-  );
+  let data = await fetch(`${port}/product/${productName}`, {
+    method: "GET",
+  });
+  let Displaypages = document.querySelector("#pagination");
   if (data.status == 200) {
     let jsonData = await data.json();
-    let length = jsonData.length;
-    //   adding length and product name
-    let lenNPname = document.querySelector("#lenNPname");
-    lenNPname.innerText = `@${productName} - ${length} products`;
-    let pages = Math.ceil(length / 12);
-    let Displaypages = document.querySelector("#pagination");
-    for (let i = 1; i <= pages; i++) {
-      let button = document.createElement("button");
-      button.innerText = i;
-      if (i == atpage) {
-        button.style.backgroundColor = "rgb(240, 90, 34)";
-        button.style.color = "white";
+    if (jsonData.length > 0) {
+      let length = jsonData.length;
+      //   adding length and product name
+      let lenNPname = document.querySelector("#lenNPname");
+      lenNPname.innerText = `@${productName} - ${length} products`;
+      let pages = Math.ceil(length / 12);
+      for (let i = 1; i <= pages; i++) {
+        let button = document.createElement("button");
+        button.innerText = i;
+        if (i == atpage) {
+          button.style.backgroundColor = "rgb(240, 90, 34)";
+          button.style.color = "white";
+        }
+        button.addEventListener("click", () => {
+          atpage = i;
+          Displaypages.innerHTML = null;
+          pagination();
+          displayProduct();
+        });
+        Displaypages.append(button);
       }
-      button.addEventListener("click", () => {
-        atpage = i;
-        Displaypages.innerHTML = null;
-        pagination();
-        displayProduct();
-      });
-      Displaypages.append(button);
+    } else {
+      Displaypages.innerHTML = null;
+      Displaypages.innerHTML = "Product Not found";
+      alert("product not found");
     }
+  } else {
+    console.log("yes");
+    Displaypages.innerHTML = null;
+    Displaypages.innerHTML = "Product Not found";
+    alert("product not found");
   }
 }
 pagination();
 // ***********************************************************display products***************************************************
 async function displayProduct() {
   let displayData = await fetch(
-    `https://thankful-mittens-duck.cyclic.app/product/${productName}?page=${atpage}&sort=${sortValue}`,
+    `${port}/product/${productName}?page=${atpage}&sort=${sortValue}`,
     {
       method: "GET",
     }

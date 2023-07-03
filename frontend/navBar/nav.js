@@ -1,3 +1,5 @@
+const port = "https://thankful-mittens-duck.cyclic.app";
+
 // login func
 let user = localStorage.getItem("user") || null;
 if (user) {
@@ -31,8 +33,19 @@ if (user) {
   });
 }
 
+// get value on clicking enter key
+let searchInput = document.querySelector("#searchInput");
+searchInput.addEventListener("input", (event) => {
+  event.preventDefault();
+  let all_tag = document.querySelectorAll("#searchbar input");
+  let query = all_tag[0].value;
+  localStorage.setItem("productName", `search/${query}`);
+});
+
+// get value on clicking search button
 let searchform = document.querySelector("#searchbar");
-searchform.addEventListener("submit", (event) => {
+let searchLogo = document.querySelector("#searchLogo");
+searchLogo.addEventListener("click", (event) => {
   event.preventDefault();
   let all_tag = document.querySelectorAll("#searchbar input");
   let query = all_tag[0].value;
@@ -40,18 +53,17 @@ searchform.addEventListener("submit", (event) => {
 });
 
 async function searchAndDisplay(query) {
-  let data = await fetch(
-    `https://thankful-mittens-duck.cyclic.app/product/search?search=${query}`,
-    {
-      method: "GET",
-    }
-  );
-  if (data.status == 200) {
-    let searchedData = await data.json();
-    if (searchedData.length > 0) {
-      
-    } else {
-      alert("product not found")
-    }
-  }
+  console.log(query);
+  localStorage.setItem("productName", `search/${query}`);
+  window.location.href = "./productpage/productPage.html";
+  // let data = await fetch(`${port}/product/search/${query}`, {
+  //   method: "GET",
+  // });
+  // if (data.status == 200) {
+  //   let searchedData = await data.json();
+  //   if (searchedData.length > 0) {
+  //   } else {
+  //     alert("product not found");
+  //   }
+  // }
 }
